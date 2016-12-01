@@ -31,6 +31,9 @@ gem 'jbuilder', '2.5.0'
 # Use Bootstrap for layout and front end
 gem 'bootstrap-sass', '3.3.7'
 
+# Use Font awsome Sass Gem for adding icons
+gem 'font-awesome-sass', '4.6.2'
+
 group :development, :test do
   gem 'sqlite3'
   # Use Puma as the app server
