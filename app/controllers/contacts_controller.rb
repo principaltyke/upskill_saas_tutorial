@@ -9,6 +9,14 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
+      
+      #send email
+      #get fields from form
+      name = params[:contact][:name]
+      email = params[:contact][:email]
+      body = params[:contact][:comments]
+      ContactMailer.contact_email(name, email, body).deliver
+      
       #flash is the hash cache
       #success here is a key. It's value is set here
       #the page form access this key with <%= flash[:success] %>
