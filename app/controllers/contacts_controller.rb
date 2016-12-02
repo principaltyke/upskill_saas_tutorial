@@ -9,10 +9,13 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
+      #flash is the hash cache
+      #success here is a key. It's value is set here
+      #the page form access this key with <%= flash[:success] %>
       flash[:success] = "Message Sent."
       redirect_to new_contact_path
     else
-      flash[:error] = @contact.errors.full_messages.join(", ")
+      flash[:danger] = @contact.errors.full_messages.join(", ")
       #redirect_to new_contact_path, notice: "Error occurred."
       #when an error occurs @contacts will have accesss to .errors. errors are in an array
       #we split and join each error with a comma and space

@@ -2,8 +2,15 @@
   <div class="row">
     <h3 class="text-center">Contact Us</h3>
     <div class="col-md-4 col-md-offset-4">
-      <!--output a redirect to with notice message from controller-->
-      <%= flash[:error] %>
+      <!--output a redirect to with notice message from controller
+      < %= flash[:error] %> -->
+      
+      <!--more advanced output of hash flash-->
+      <!-- This moved to main layout to ensure consistency in the whole site
+      < % flash.each do |type, msg| %>
+        < %= content_tag :div, msg, class: "alert alert-#{type}" %>
+      < % end %>-->
+      
       <div class="well">
     
         <%= form_for @contact do |f| %>
