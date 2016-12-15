@@ -34,6 +34,9 @@ gem 'bootstrap-sass', '3.3.7'
 # Use Font awsome Sass Gem for adding icons
 gem 'font-awesome-sass', '4.6.2'
 
+# Use Devise for  user authentication
+gem 'devise', '4.2.0'
+
 # Use Hirb for better database table display in console
 gem 'hirb', '0.7.3'
 
