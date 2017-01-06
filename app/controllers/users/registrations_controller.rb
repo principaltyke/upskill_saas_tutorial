@@ -1,5 +1,8 @@
 class Users::RegistrationsController < Devise::RegistrationsController
     #inherit from Devise RegistrationsController
+    #so that users signing up with the pro account (plan id2)
+    #save with a special Stripe subscription function
+    #otherwise devise signs up user as usual
     def create
       super do |resource| #super means inherit the 'create' action, but then extend it
         if params[:plan]

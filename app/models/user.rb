@@ -7,7 +7,13 @@ class User < ApplicationRecord
   #each user should belong to a plan
   belongs_to :plan
 
-  attr_accessor :stripe_card_token  #whitelist theis field so that we can use it below
+  attr_accessor :stripe_card_token  #whitelist this field so that we can use it below
+  #if pro user passes validations (email, password etc),
+  # then call Stripe and tell Stripe to set up a subscription
+  # upon charging the customer's card.
+  # Stripe responds back with customer data.
+  # Store customer.id as the customer token and save the user.
+  
   def save_with_subscription
     #validate the fields email password password conf
     if valid?
