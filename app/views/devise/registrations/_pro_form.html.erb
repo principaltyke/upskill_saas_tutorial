@@ -21,6 +21,8 @@
     <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
   </div>
   
+  <!--f. will write to the database. Otherwise fields will not write to the database. See credit card below. Anything with Name :nil will not save-->
+  
   <div class="form-group">
     <%= label_tag :card_number, "Credit Card Number" %>
     <%= text_field_tag :card_number, nil, name: nil, class: "form-control" %>
