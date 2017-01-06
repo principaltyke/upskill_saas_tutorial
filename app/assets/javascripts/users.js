@@ -7,7 +7,7 @@ $(document).on('turbolinks:load', function(){
 //set stripe public key.
   Stripe.setPublishableKey( $('meta[name="stripe-key').attr('content') )
   var theForm = $('#pro_form');
-  var submitBtn = $('#form-submit-btn');
+  var submitBtn = $('#form-signup-btn');
 
   //When user clicks form submit button.
   submitBtn.click(function(event){
@@ -16,10 +16,10 @@ $(document).on('turbolinks:load', function(){
     submitBtn.val("Processing").prop('disabled', true);
     
     //Collect the credit card fields.
-    var ccNum = ('#card_number').num(), 
-      cvcNum = ('#card_code').num(),
-      expMonth = ('#card_month').num(),
-      expYear = ('#card_year').num();
+    var ccNum = $('#card_number').val(), 
+      cvcNum = $('#card_code').val(),
+      expMonth = $('#card_month').val(),
+      expYear = $('#card_year').val();
       
       //use Stripe js library to check for card errors.
       var error = false;
