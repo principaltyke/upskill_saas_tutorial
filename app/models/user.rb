@@ -14,6 +14,10 @@ class User < ApplicationRecord
     #if valid, then create a Stripe subscription for ongoing payments. NB if just a one time charge, this is not necessary as we will have received the card toke with the charge as a one off
     #because we are wanting a monthly fee, we need to create a customer at Strip and use the card token to create a subscription
     customer = Stripe::Customer.create(description: email, plan: plan_id, card: stripe_card_token) #Stripe will charge their card using the token that they gave us and create a subscription. Then call the rails server here and return an object of data. This is assigned to var customer
+    
+    #stripe_card_token for one time payments
+    #stripe_customer_token for subscriptions
+    
     #customer_token is the subscription id. That is what we keep
     #customer.id  is the customer_token
     #self is the user. stripe_customer_token is the field in the model and database
