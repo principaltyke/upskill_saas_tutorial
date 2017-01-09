@@ -1,4 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+    #before and only for the new action go to the select_plan method to check that a plan has been added correctly
+    before_action :select_plan, only: :new
+    
     #inherit from Devise RegistrationsController
     #so that users signing up with the pro account (plan id2)
     #save with a special Stripe subscription function
@@ -16,6 +19,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
             resource.save
           end
         end
+      end
+    end
+    
+    private
+    #for the user to have a plan
+    def select_plan
+      unless (params[:plan] == '1' || params[:plan] == '2')
+        flash[:notice] = "Please select a membership plan to sign up."
+        redirect_to root_url
       end
     end
 end
