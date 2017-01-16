@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   #each user should belong to a plan
   belongs_to :plan
+  has_one :profile
 
   attr_accessor :stripe_card_token  #whitelist this field so that we can use it below
   #if pro user passes validations (email, password etc),
