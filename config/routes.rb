@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   #together such as profiles would naturally fall under
   #the user route
   resources :users do
-    resource :profiles #singular
+    resource :profile #singular
   end
   
   get 'about', to: 'pages#about'

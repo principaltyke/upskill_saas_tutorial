@@ -4,5 +4,7 @@ class ProfilesController < ApplicationController
     # Render blank profile details form
     # in a .html.erb file you can ad debugging
     # <% debug(params) if Rails.env.development? %>
+    
+    @profile = Profile.new
   end
 end
